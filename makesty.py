@@ -1,13 +1,13 @@
 import re
 
 # Input file created from http://astronautweb.co/snippet/font-awesome/
-INPUT_FILE = 'htmlfontawesome.txt'
+INPUT_FILE = 'iconlist.txt'
 OUTPUT_FILE = 'fontawesome.sty'
 
 OUTPUT_HEADER = r'''
 % Identify this package.
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{fontawesome}[2014/04/24 v4.0.3 font awesome icons]
+\ProvidesPackage{fontawesome}[2014/04/22 v4.3.0 font awesome icons]
 
 % Requirements to use.
 \usepackage{fontspec}
@@ -23,10 +23,10 @@ OUTPUT_HEADER = r'''
 with open(INPUT_FILE) as r, open(OUTPUT_FILE, 'w') as w:
   print(OUTPUT_HEADER, file=w)
   for line in r:
-    # Expects to find 'fa-NAME' ending with "
-    name = re.findall(r'fa-[^""]*', line)[0]
-    # Expects to find '\fSYMBOL' ending with "
-    symbol = re.findall(r'\\f[^"]*', line)[0][1:].upper()
+    # Expects to find 'fa-NAME' ending with " " (single space)
+    name = re.findall(r'fa-[^" "]*', line)[0]
+    # Expects to find 'xfSYMBOL' ending with ;
+    symbol = re.findall(r'xf[^;]*', line)[0][1:].upper()
 
     camel_case = [w.capitalize() for w in name.split('-')]
     camel_case[0] = camel_case[0].lower()
