@@ -17,3 +17,9 @@ How to Use
 2. Include the package as normal (in the preamble of the `.tex` file, add the line `\usepackage{fontawesome}`).
 3. Use an icon by typing `\faIconName`. For example, to use the `fa-quote-left` icon, convert it to camelcase and prepend the slash: `\faQuoteLeft`.
 
+How to update
+-------------
+
+1. Copy-paste the icon list from the [cheat sheet](http://fortawesome.github.io/Font-Awesome/cheatsheet/). If necessary, remove any invalid characters. Someone could probably incorporate this step into the python script.
+2. Name it iconlist.txt or modify the python script as necessary.
+3. Run the script
